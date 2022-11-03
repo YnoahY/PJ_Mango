@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Mango\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3636324991.index
+698364914.index
+1433591040.index
+3640924077.index
+1552876082.index
+4083431125.index

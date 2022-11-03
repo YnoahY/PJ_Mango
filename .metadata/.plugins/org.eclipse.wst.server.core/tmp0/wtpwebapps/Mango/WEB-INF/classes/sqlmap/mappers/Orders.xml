@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ordersMapper">
+	<resultMap type="OrdersVO" id="ordersList">
+		<result property="ordersId" column="orders_id" />
+		<result property="cartId" column="cart_id" />
+		<result property="id" column="id" />
+		<result property="name" column="name" />		
+		<result property="creDate" column="creDate" />
+		<result property="totalPrice" column="total_price" />	
+		<result property="cno" column="cno" />
+	</resultMap>
+		
+	<select id="selectAllOrdersList" resultMap="ordersList"	parameterType="OrdersVO">
+		SELECT * FROM orders 
+		WHERE id = #{id} 
+		ORDER BY cno DESC
+	</select>
+
+	<insert id="insertOrders" parameterType="OrdersVO">
+		INSERT INTO orders(orders_id, cart_id, id, name, creDate, total_price)
+		VALUES(#{ordersId}, #{cartId}, #{id}, #{name}, SYSDATE(6), #{totalPrice})
+	</insert>
+
+	<select id="selectOrders" resultType="OrdersVO"	parameterType="OrdersVO">
+	   	<![CDATA[
+	      SELECT * FROM orders
+	      ]]>
+	</select>
+		
+</mapper>
